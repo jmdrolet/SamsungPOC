@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Search | Samsung UK</title>
+  <meta about="Search all content at once." />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, height=device-height">
+  <script src="https://static.cloud.coveo.com/searchui/v2.7968/js/CoveoJsSearch.js"></script>
+  <script src="https://static.cloud.coveo.com/searchui/v2.7968/js/cultures/en.js"></script>
+  <script src="https://static.cloud.coveo.com/searchui/v2.7968/js/templates/templatesNew.js"></script>
+
+  <script src="assets/js/cultures/en.js"></script>
+  <script src="assets/js/coveo-samsung.bundle.js"></script>
+
+  <link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.7968/css/CoveoFullSearchNewDesign.css" />
+  <link rel="stylesheet" href="assets/css/coveo-samsung.css" />
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      Coveo.SearchEndpoint.configureCloudV2Endpoint('ORG ID', 'API KEY', 'https://platform.cloud.coveo.com/rest/search');
+      // Coveo.SearchEndpoint.endpoints['default'].options.queryStringArguments.viewAllContent = 'true';
+      Coveo.init(document.getElementById('search'), {});
+    })
+  </script>
+</head>
+
+<body lang="en">
+  <div id="search" class='CoveoSearchInterface' data-enable-history="true" data-design="new">
+  <div class="CoveoAnalytics" data-search-hub="Commerce"></div>
+  <div class="CoveoSamsungCusto"></div>
+
+  <div class="coveo-search-header">
+    <div class='coveo-search-section'>
+      <!-- <div class="CoveoSettings"></div> -->
+      <div class="CoveoSearchbox" data-placeholder="Galaxy S20" data-enable-omnibox="true"></div>
+      <div 
+          class="CoveoCustomOmniboxSearchHistory" 
+          data-number-of-queries="5" 
+          data-is-standalone="false" 
+          data-show-previous-queries-in-omnibox="false" 
+          data-use-cookies="false"
+      ></div>
+    </div>
+    <div class="coveo-summary-section">
+      <div class="container">
+        <div class="CoveoDidYouMean"></div>
+        <div class="CoveoErrorReport"></div>
+      </div>
+    </div>
+  </div>
+  <div class="coveo-main-section">
+      <div class="coveo-tab-section">
+          <a class="CoveoTab" data-id="All" data-caption="All"></a>
+<a class="CoveoTab" data-id="Product" data-caption="Product" data-expression="@objecttype==Product"></a>
+<a class="CoveoTab" data-id="Support" data-caption="Support" data-expression="@source=(Support,FAQ) OR @objecttype=SupportProduct"></a>
+<a class="CoveoTab" data-id="Promotion" data-caption="Promotion" data-expression="@objecttype==Promotion"></a>
+<a class="CoveoTab" data-id="Explore" data-caption="Explore" data-expression="@source=Explore"></a>
+<a class="CoveoTab" data-id="AppsServices" data-caption="Apps & Services" data-expression="@objecttype==AppServices"></a>
+<a class="CoveoTab" data-id="AboutUs" data-caption="About Us" data-expression="@objecttype==AboutUs"></a>
+<a class="CoveoTab" data-id="Others" data-caption="Others" data-expression="@source=Consumer"></a>
+<div class="CoveoDynamicTabs" data-field="@commontabs"></div>
+        </div>
+        <div class="coveo-header-section">
+          <div class="coveo-breadcrumb-section">
+              <div class="CoveoText" data-value="FILTERS"></div>
+              <div class="CoveoBreadcrumb"></div>
+          </div>
+          <div class="coveo-sort-section">
+            <div class="CoveoSortDropdown">
+<span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
+<span class="CoveoSort" data-sort-criteria="date descending" data-caption="Newest"></span>
+<span class="CoveoSort" data-sort-criteria="date ascending" data-caption="Oldest"></span>
+<span class="CoveoSort" data-sort-criteria="@pdcratings descending" data-tab="Product" data-caption="Ratings"></span>
+<span class="CoveoSort" data-sort-criteria="@title ascending" data-caption="A-Z"></span>
+<span class="CoveoSort" data-sort-criteria="@title descending" data-caption="Z-A"></span>
+<span class="CoveoSort" data-sort-criteria="@pdcprice descending" data-tab="Product" data-caption="Price: High to low"></span>
+<span class="CoveoSort" data-sort-criteria="@pdcprice ascending" data-tab="Product" data-caption="Price: Low to High"></span>
+</div>
+          </div>
+        </div>
+        <div style="clear:both;"></div>
+    <div class="coveo-facet-column">
+      <div class="CoveoFacet" data-id="productCat" data-title="Type" data-tab="Product" data-number-of-values="10" data-enable-facet-search="false" data-enable-settings="false" data-field="@pdccategories"></div>
+<div class="CoveoFacet" data-id="supportCat" data-title="Products" data-tab="Support" data-enable-facet-search="false" data-enable-settings="false" data-field="@pdccategories"></div>
+<div class="CoveoFacet" data-title="Type" data-tab="Explore" data-enable-facet-search="false" data-enable-settings="false" data-field="@cfilterlocalname"></div>
+<!-- <div class="CoveoFacet" data-title="Colour" data-tab="Product" data-enable-facet-search="false" data-enable-settings="false" data-field="@pdccolor" data-depends-on="productCat"></div> -->
+<div class="CoveoCategoryFacet" data-enable-facet-search="false" data-base-path="home" data-title="Solutions" data-field="@folderhierarchy" data-tab="Support"></div>
+    </div>
+    <div class="coveo-results-column">
+      <div class="CoveoShareQuery"></div>
+      <div class="CoveoExportToExcel"></div>
+      <div class="CoveoPreferencesPanel">
+        <div class="CoveoResultsPreferences"></div>
+        <div class="CoveoResultsFiltersPreferences"></div>
+      </div>
+      <div class="CoveoSearchAlerts"></div>
+      
+        <!-- <div class="coveo-results-header">
+      <div class="coveo-summary-section">
+          <span class="CoveoQuerySummary"></span>
+          <span class="CoveoQueryDuration"></span>
+        </div>
+        <div class="coveo-result-layout-section">
+          <span class="CoveoResultLayout"></span>
+        </div>
+      
+      </div> -->
+      <div class="CoveoHiddenQuery"></div>
+      <div class="CoveoCustomNoResult" data-template-id="no-results"></div>
+      <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="false">
+        <script id="Product" class="result-template" type="text/x-underscore-template" data-layout="list" data-field-objecttype="Product">
+  <div class="coveo-result-frame support-frame">
+    <div class="coveo-result-row">
+      <div class="coveo-result-cell" style="width:200px">
+        <span style="height: 113px">
+        <picture>
+            <img class="product-img" alt="" data-src-pc="https://images.samsung.com/is/image/samsung/{{- raw.commonimageurl }}" data-src-mobile="https://images.samsung.com/is/image/samsung/{{- raw.commonimageurl }}" src="https://images.samsung.com/is/image/samsung/{{- raw.commonimageurl }}">
+        </picture> 
+    </span>
+
+      </div>
+      <div class="coveo-result-cell" >
+              <div class="coveo-result-row">
+                  <a class="CoveoResultLink"></a>
+              </div>
+              <div class="coveo-result-row">
+                  <div class="coveo-result-cell" >
+                      {{ if(raw.pdcpromotionprice < raw.pdcprice) {  }} 
+                        <div class="price-wrapper">
+                            <div class="CoveoFieldValue" data-field="@pdcpromotionpricecurrency"></div>
+                            <div class="CoveoFieldValue price-promotion" data-field="@pdcpricecurrency"></div>
+                        </div>
+                      {{ } else if(raw.pdcpricecurrency) { }} 
+                      <div class="price-wrapper">
+                        <div class="CoveoFieldValue" data-field="@pdcpricecurrency"></div>
+                      </div>
+                      {{ } }}
+                      <div class="CoveoFieldValue model-name" data-field="@pdcmodelcode"></div>
+                      {{ if(raw.pdcenergylabelgrade) { }}
+                      <div class="s-energy-label">
+                          <a target="_blank" class="s-energy-label__txt" href="{{-raw.pdcfichefileurl}}"> 
+                              <div class="CoveoText" data-value="Product Fiche"></div>
+                            </a>
+                        <a target="_blank" class="s-energy-label__tag {{-raw.pdcenergylabelclass2}}" href="{{-raw.pdcenergyfileurl}}"> 
+                          <div class="CoveoFieldValue {{-raw.pdcenergylabelclass1}}" data-field="@pdcenergylabelgrade"></div>
+                        </a>
+                      </div>
+                      {{ } }}
+                      <div class="CoveoRatings" data-field="@pdcratings" data-field-url="@pdclinkurlreview" data-field-count="@pdcreviewscount"></div>
+                      <!-- <div class="CoveoFieldValue ratings" data-field="@pdcratings"></div> -->
+                  </div>
+                  <!-- <div class="CoveoExcerpt"></div> -->
+              </div>
+              {{ if(raw.pdcstorepromotions && raw.pdcstorepromotions != ' ') { }}
+              <div class="coveo-result-row">
+                  <div class="coveo-result-cell product-description" >
+                      <div class="CoveoFieldValue" data-field="@pdcstorepromotions" data-split-values="true" data-display-separator=" " ></div>
+                  </div>
+              </div>
+              {{ } else if(raw.pdcuspdesc) { }}
+              <div class="coveo-result-row">
+                  <div class="coveo-result-cell product-description" >
+                      <div class="CoveoFieldValue" data-field="@pdcuspdesc" data-split-values="true" data-display-separator=" " data-html-value="true"></div>
+                  </div>
+              </div>
+              {{ } }}
+              <div class="coveo-result-row">
+                  <div class="coveo-result-cell" >
+                      <a class="CoveoResultLink cta-link"><div class="CoveoText" data-value="Learn More"></div></a>
+                      {{ if(raw.pdcoriginpdpurl && raw.pdcpricecurrency) { }}
+                        <a class="CoveoResultLink cta-link" href="https://www.samsung.com{{-raw.pdcoriginpdpurl}}buy/">
+                            {{ if(raw.pdcstockstatus == "Preorder"){ }}
+                                <div class="CoveoText" data-value="PreOrder"></div>
+                            {{ } else { }} 
+                                <div class="CoveoText" data-value="BuyNow"></div>
+                            {{ } }}
+                        </a>
+                      {{ } }}
+                      <a class="CoveoResultLink cta-link"><div class="CoveoText" data-value="Where to Buy"></div></a>
+                      {{ if(raw.pdcsupportlinkurl) { }}
+                        <a class="CoveoResultLink cta-link" href="https://www.samsung.com{{-raw.pdcsupportlinkurl}}"><div class="CoveoText" data-value="Find Support"></div></a>
+                      {{ } }}
+                  </div>
+              </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="SupportProduct" class="result-template" type="text/x-underscore-template" data-layout="list" data-field-objecttype="SupportProduct">
+  <div class="coveo-result-frame support-frame">
+    <div class="coveo-result-row">
+
+    {{ if (raw.commonimageurl) { }}
+      <div class="coveo-result-cell" style="width:200px">
+        <span style="height: 113px">
+        <picture>
+            <img class="support-product-img" alt="" data-src-pc="{{- raw.commonimageurl }}" data-src-mobile="{{- raw.commonimageurl }}" src="{{- raw.commonimageurl }}">
+        </picture> 
+        </span>
+      </div>
+    {{  } }}
+      <div class="coveo-result-cell" style="padding-left:10px">
+              <div class="coveo-result-row">
+                  <a class="CoveoResultLink"></a>
+              </div>
+              <div class="coveo-result-row">
+                  <div class="coveo-result-cell item-description">
+                    <div class="CoveoFieldValue" data-field="@pdcmodelcode"></div>
+                  </div>
+                  <!-- <div class="CoveoExcerpt"></div> -->
+              </div>
+              <div class="coveo-result-row">
+                  <div class="coveo-result-cell breadcrumb-items">
+                    <a class="CoveoResultLink">
+                        <span class="CoveoText" data-value="Support"></span> > <span class="CoveoText" data-value="Product"></span>
+                    </a>
+                  </div>
+              </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="Support" class="result-template" type="text/x-underscore-template" data-layout="list" data-field-source="UK Support">
+  <div class="coveo-result-frame support-frame">
+    <div class="coveo-result-row">
+      <div class="coveo-result-cell" style="padding-left:10px">
+              <div class="coveo-result-row">
+                  <a class="CoveoResultLink"></a>
+              </div>
+              <div class="coveo-result-row">
+                  <div class="coveo-result-cell item-description">
+                     <div class="CoveoExcerpt"></div>
+                    <!-- <div class="CoveoFieldValue" data-field="@pdcmodelname"></div> -->
+                  </div>
+                 
+              </div>
+              <div class="coveo-result-row">
+                  <div class="coveo-result-cell breadcrumb-items">
+                    <a class="CoveoResultLink">
+                        <span class="CoveoText" data-value="Support"></span> > <span class="CoveoText" data-value="Solution"></span>
+                    </a>
+                  </div>
+              </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="Promotion" class="result-template" type="text/x-underscore-template" data-layout="list" data-field-objecttype="Promotion">
+  <div class="coveo-result-frame support-frame">
+
+    <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="width:200px">
+            <span style="height: 79px;">
+                <picture>
+                    <img class="product-img" alt=""
+                        data-src-pc="//images.samsung.com/is/image/samsung/{{- raw.commonimageurl }}"
+                        data-src-mobile="//images.samsung.com/is/image/samsung/{{- raw.commonimageurl }}"
+                        src="//images.samsung.com/is/image/samsung/{{- raw.commonimageurl }}">
+                </picture>
+            </span>
+
+        </div>
+
+        <div class="coveo-result-row">
+            <div class="coveo-result-cell">
+                <a class="CoveoResultLink"></a>
+            </div>
+        </div>
+        <div class="coveo-result-row ">
+            <div class="coveo-result-cell item-description">
+                <div class="CoveoFieldValue" data-field="@commondescription"></div>
+            </div>
+        </div>
+        <div class="coveo-result-row">
+                <div class="coveo-result-cell breadcrumb-items">
+            <b>PROMOTION | <span class="CoveoFieldValue" data-field="@cprmstartdateymd" data-helper="date"
+                    data-helper-options-predefined-format="yyyy.MM.dd"></span> ~ <span class="CoveoFieldValue"
+                    data-field="@cprmenddateymd" data-helper="date"
+                    data-helper-options-predefined-format="yyyy.MM.dd"></span></b>
+                </div>
+        </div>
+    </div>
+</script>
+<script id="Explore" class="result-template" type="text/x-underscore-template" data-layout="list" data-field-objecttype="Explore">
+  <div class="coveo-result-frame support-frame">
+    <div class="coveo-result-row">
+        {{ if (raw.commonimageurl != '' && raw.commonimageurl != 'common-search-img_search_others' ) {  }}
+        <div class="coveo-result-cell" style="width:200px;">
+            <span style="height: 113px">
+                <picture>
+                    <img class="explore-product-img" alt="" data-src-pc="{{- raw.commonimageurl }}"
+                        data-src-mobile="{{- raw.commonimageurl }}" src="{{- raw.commonimageurl }}">
+                </picture>
+            </span>
+        </div>
+        {{  } }}
+        <div class="coveo-result-cell" style="padding-left:10px">
+            <div class="coveo-result-row">
+                <a class="CoveoResultLink"></a>
+            </div>
+            <div class="coveo-result-row">
+                <div class="coveo-result-cell item-description">
+                    <div class="CoveoFieldValue explore-description" data-field="@commondescription"></div>
+                </div>
+                <!-- <div class="CoveoExcerpt"></div> -->
+            </div>
+            <div class="coveo-result-row">
+                <div class="coveo-result-cell breadcrumb-items">
+                  <a class="CoveoResultLink">
+                      <span class="CoveoText" data-value="Explore"></span> > <span class="CoveoFieldValue" data-field="@cfilterlocalname" data-facet="false"></span>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script id="AppServices" class="result-template" type="text/x-underscore-template" data-layout="list" data-field-objecttype="AppServices">
+  <div class="coveo-result-frame support-frame">
+    <div class="coveo-result-row">
+        {{ if (raw.commonimageurl != '' && raw.commonimageurl != 'common-search-img_search_others' ) {  }}
+        <div class="coveo-result-cell" style="width:200px;">
+            <span style="height: 113px">
+                <picture>
+                    <img class="explore-product-img" alt="" data-src-pc="{{- raw.commonimageurl }}"
+                        data-src-mobile="{{- raw.commonimageurl }}" src="{{- raw.commonimageurl }}">
+                </picture>
+            </span>
+        </div>
+        {{  } }}
+        <div class="coveo-result-cell" style="padding-left:10px">
+            <div class="coveo-result-row">
+                <a class="CoveoResultLink"></a>
+            </div>
+            <div class="coveo-result-row">
+                <div class="coveo-result-cell item-description">
+                    <div class="CoveoFieldValue" data-field="@commondescription"></div>
+                </div>
+                <!-- <div class="CoveoExcerpt"></div> -->
+            </div>
+            <div class="coveo-result-row">
+                <div class="coveo-result-cell breadcrumb-items">
+                  <a class="CoveoResultLink">
+                      <span class="CoveoText" data-value="Apps & Services"></span>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script id="Default" class="result-template" type="text/html" data-layout="list">
+  <div class="coveo-result-frame support-frame">
+    <div class="coveo-result-row">
+      <div class="coveo-result-cell" style="width:20px">
+          <!-- <span class="support-icon faq-icon">UK</span> -->
+      </div>
+      <div class="coveo-result-cell" >
+              <div class="coveo-result-row">
+                  <a class="CoveoResultLink"></a>
+              </div>
+              <div class="coveo-result-row item-description">
+                  <div class="CoveoExcerpt"></div>
+              </div>
+              <div class="coveo-result-row">
+                <div class="coveo-result-cell breadcrumb-items">
+                  <a class="CoveoResultLink">
+                      <span class="CoveoText" data-value="Others"></span>
+                  </a>
+                </div>
+            </div>
+              
+      </div>
+    </div>
+  </div>
+</script>
+<script id="no-results" type="text/x-underscore-template" >
+  <div class="no-result-section">
+    <h2 class="no-result-title">
+        {{-Coveo.l('NoResult')}}
+    </h2>
+    <ul class="no-result-tips-list">
+        <li class="no-result-tips">{{-Coveo.l('NoResultTips1')}}</li>
+        <li class="no-result-tips">{{-Coveo.l('NoResultTips2')}}</li>
+        <li class="no-result-tips">{{-Coveo.l('NoResultTips3')}}</li>
+    </ul>
+</div>
+<div>
+    <div class="coveo-result-row ">
+        <h2 class="no-result-title"> Contact Us </h2>
+    </div>
+    <div class="coveo-result-row contact-us-section">
+        <div style="display: table-row;">
+            <div class="coveo-result-cell coveo-card">
+                <div class="coveo-card-header">
+                    <div style="width: 15%;">
+                        <img class="card-header-img" src="https://www.samsung.com/etc/designs/smg/global/imgs/support-new/svg-contact-online.svg">
+                    </div>
+                    <div class="width:85%">
+                        {{-Coveo.l('Online')}}
+                    </div>
+                </div>
+                <div class="coveo-result-cell card-content">
+                    {{-Coveo.l('NoResultsOnline')}}
+                </div>
+                <div class="coveo-result-cell card-link">
+                    <a href="https://www.samsung.com/uk/support/contact/">   {{-Coveo.l('LearnMore')}} > </a>
+                </div>
+            </div>
+            <div class="coveo-result-cell coveo-card">
+                <div class="coveo-card-header">
+                    <div style="width: 15%;">
+                        <img class="card-header-img" src="https://www.samsung.com/etc/designs/smg/global/imgs/support-new/svg-contact-call2.svg">
+                    </div>
+                    <div class="width:85%">
+                        {{-Coveo.l('Call')}}
+                    </div>
+                </div>
+                <div class="coveo-result-cell card-content" style="margin:4% 0%">
+                    {{-Coveo.l('NoResultsCall')}}
+                </div>
+                <div class="coveo-result-cell card-link">
+                    <a href="https://www.samsung.com/uk/support/contact/">  {{-Coveo.l('LearnMore')}} > </a>
+                </div>
+            </div>
+            <div class="coveo-result-cell coveo-card">
+                <div class="coveo-card-header">
+                    <div style="width: 15%;">
+                        <img  class="card-header-img" src="https://www.samsung.com/etc/designs/smg/global/imgs/support-new/svg-contact-visitus.svg">
+                    </div>
+                    <div class="width:85%">
+                        {{-Coveo.l('NeedRepair')}} 
+                    </div>
+                </div>
+                <div class="coveo-result-cell card-content">
+                    {{-Coveo.l('NoResultsNeedRepair')}}
+                </div>
+                <div class="coveo-result-cell card-link" style="margin-bottom: 5%">
+                    <a href="https://www.samsung.com/uk/support/repair/"> {{-Coveo.l('BookRepair')}} > </a>
+                </div>
+                <div class="coveo-result-cell card-link">
+                    <a href="https://www.samsung.com/uk/support/repair/mobile-device/support-centre-repair/">  {{-Coveo.l('FindSupport')}} ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+      </div>
+      <!-- <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="true">
+        
+      </div> -->
+      <div class="CoveoPager"></div>
+      <div class="CoveoScrollToTop"></div>
+      <!-- <div class="CoveoLogo"></div> -->
+      <!-- <div class="CoveoResultsPerPage"></div> -->
+  </div>
+</div>
+</body>
+
+</html>

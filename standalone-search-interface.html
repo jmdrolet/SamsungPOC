@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search | Samsung UK</title>
+    <meta about="Search all content at once." />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <script src="https://static.cloud.coveo.com/searchui/v2.7968/js/CoveoJsSearch.js"></script>
+    <script src="https://static.cloud.coveo.com/searchui/v2.7968/js/cultures/en.js"></script>
+    <script src="https://static.cloud.coveo.com/searchui/v2.7968/js/templates/templatesNew.js"></script>
+
+    <script src="assets/js/cultures/en.js"></script>
+    <script src="assets/js/coveo-samsung.bundle.js"></script>
+
+    <link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.7968/css/CoveoFullSearchNewDesign.css" />
+    <link rel="stylesheet" href="assets/css/coveo-samsung.css" />
+
+    <style>
+        .s-layer-dimmed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #000;
+            width: 100%;
+            height: 100%;
+            z-index: 1100;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+            opacity: .85;
+            display: block;
+        }
+
+        .modal {
+            margin-top: 162px;
+        }
+
+        .modal-header h2 {
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            font-family: "SamsungSharpSans", Arial;
+        }
+
+        @media (min-width: 1440px) {
+            .modal {
+                width: 1156px;
+                margin-left: calc(calc(100% - 1156px) / 2);
+            }
+
+            .modal-header h2 {
+                font-size: 52px;
+                margin-bottom: 17px;
+            }
+        }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Coveo.SearchEndpoint.configureCloudV2Endpoint('ORG ID', 'API KEY', 'https://platform.cloud.coveo.com/rest/search');
+            const standaloneSearchBoxRoot = document.querySelector('#coveo-search-header #coveostandalonesearchbox');
+            const customHideStandaloneSearchbox = document.querySelector('#coveo-search-header .CoveoCustomHideStandaloneSearchbox');
+            const pipelineContext = document.querySelector('#coveo-search-header .CoveoPipelineContext');
+
+            //Replace this with url we want
+            const searchPageUrl = 'https://d339f5eduyfqpj.cloudfront.net/public/full-search.html';
+
+            Coveo.initSearchbox(standaloneSearchBoxRoot, searchPageUrl, {
+                Analytics: {
+                  searchHub: 'Commerce'
+                },
+                Searchbox: {
+                  enableQuerySyntax: true
+                },
+                CustomOmniboxSuggestions : {
+                  context: {
+                    "locale": "en",
+                    "standalonesearchbox": "true"
+                  },
+                  baseSuggestionsSectionLabel: "CustomOmniboxSuggestions_baseSuggestionsSectionLabel",
+                  customSuggestionsSectionLabel: "CustomOmniboxSuggestions_customSuggestionsSectionLabel"
+                },
+                CustomPipelineContext : {
+                  context :  {
+                    "locale": "en",
+                    "standalonesearchbox": "true"
+                  }
+                },
+                externalComponents: [customHideStandaloneSearchbox, pipelineContext]
+            });
+        })
+    </script>
+</head>
+
+<body lang="en">
+    <div class="s-layer-dimmed">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>What are you looking for?</h2>
+            </div>
+            <div class="modal-content">
+                <div id="coveo-search-header">
+    <script class="CoveoPipelineContext" type="text/context"></script>
+    <div class="CoveoCustomHideStandaloneSearchbox"></div>
+    <div id="coveostandalonesearchbox" class="coveo-search-section">
+        <div class="CoveoCustomPipelineContext"></div>
+        <div class="CoveoAnalytics"></div>
+        <div class="CoveoSearchbox" 
+            data-enable-omnibox="true" 
+            data-inline="true" 
+            data-placeholder="Galaxy S20" 
+        >
+        <!-- data-query-suggest-character-threshold="2" -->
+        </div>
+        <div class="CoveoCustomOmniboxSuggestions" 
+            data-title="Related Searches"
+            data-section-order="search-history,related-searches,matched-content"
+            data-icon-component="CoveoIconPrefixedElement"
+            data-header-icon="icon-related"
+            data-show-when-omnibox-is-empty="false"
+        >
+            <div class="coveo-custom-omnibox-content">
+                <div 
+                    class="CoveoCustomOmniboxSection" 
+                    data-title="Matched Contents"
+                    data-icon="icon-matched"
+                    id="matched-content"
+                    data-id="matched-content"
+                    data-show-when-omnibox-is-empty="false"
+                >
+                    <div 
+                        class="CoveoCustomOmniboxMatchedContents"
+                        data-number-of-queries="5"
+                        data-expression='@objecttype=("Product","AppServices","Explore","AboutUs","Support","Customer")'
+                        data-fields-to-include='title,filetype,objecttype,commonimageurl,clickableuri,pdcsupportlinkurl'
+                    ></div>
+                </div>
+                <div 
+                    class="CoveoCustomOmniboxSection"
+                    data-title="Search History"
+                    data-icon="icon-history"
+                    id="search-history"
+                    data-id="search-history"
+                    data-show-when-omnibox-has-text="false"
+                >
+                    <div 
+                        class="CoveoCustomOmniboxSearchHistory" 
+                        data-number-of-queries="5" 
+                        data-is-standalone="true" 
+                        data-show-previous-queries-in-omnibox="false" 
+                        data-use-cookies="false"
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
